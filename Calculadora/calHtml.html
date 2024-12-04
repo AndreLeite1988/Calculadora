@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        /* Variáveis para o tema */
+        :root {
+            --bg-color: #fff;
+            --text-color: #000;
+            --button-bg: #007bff;
+            --button-text: #fff;
+            --button-hover: #0056b3;
+        }
+
+        .dark-theme {
+            --bg-color: #121212;
+            --text-color: #fff;
+            --button-bg: #333;
+            --button-text: #fff;
+            --button-hover: #555;
+        }
+
+        /* Aplicando as variáveis */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .calculator {
+            width: 300px;
+            padding: 20px;
+            background: var(--bg-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .display {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: calc(100% - 22px);
+            height: 60px;
+            font-size: 1.5rem;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 50px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--button-hover);
+        }
+
+        .history {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .theme-toggle {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled>
+        <div class="buttons">
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('+')">+</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('-')">-</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendValue('*')">*</button>
+            <button onclick="appendValue('/')">/</button>
+        </div>
+        <div class="history" id="history"></div>
+    </div>
+    <div class="theme-toggle">
+        <button id="themeSwitcher">Alternar Tema</button>
+    </div>
+    <script src="calJs.js"></script>
+</body>
+
+</html>
